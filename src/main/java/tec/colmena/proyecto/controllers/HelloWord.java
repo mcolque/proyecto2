@@ -20,13 +20,13 @@ public class HelloWord {
 	@GetMapping("/sumar")
 	public String sumar(@RequestParam float a, @RequestParam float b) {
 		String resultado = Float.toString(a + b);
-		return clienteRest.getForObject("http://localhost:9006/resultado/" + resultado, String.class);
+		return clienteRest.getForObject("https://resultadosproject.herokuapp.com/resultado/" + resultado, String.class);
 	}
 	
 	@GetMapping("/restar")
 	public String restar(@RequestParam float a, @RequestParam float b) {
 		String resultado = Float.toString(a - b);
-		return clienteRest.getForObject("http://localhost:9006/resultado/" + resultado, String.class);
+		return clienteRest.getForObject("https://resultadosproject.herokuapp.com/resultado/" + resultado, String.class);
 	}
 	
 	
