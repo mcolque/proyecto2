@@ -14,18 +14,19 @@ public class HelloWord {
 	
 	@GetMapping("/welcome")
 	public String welcome() {
-		return "Bienvenido a Heroku";
+		return "Bienvenido a Heroku :)";
 	}
 	
 	@GetMapping("/sumar")
 	public String sumar(@RequestParam float a, @RequestParam float b) {
 		String resultado = Float.toString(a + b);
-		return clienteRest.getForObject("https://resultadosproject.herokuapp.com/resultado/"+resultado, String.class);
+		return clienteRest.getForObject("http://localhost:9006/resultado/" + resultado, String.class);
 	}
 	
 	@GetMapping("/restar")
-	public float restar(@RequestParam float a, @RequestParam float b) {
-		return (a - b);
+	public String restar(@RequestParam float a, @RequestParam float b) {
+		String resultado = Float.toString(a - b);
+		return clienteRest.getForObject("http://localhost:9006/resultado/" + resultado, String.class);
 	}
 	
 	
